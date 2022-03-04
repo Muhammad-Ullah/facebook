@@ -17,6 +17,7 @@ dependencies:
   flutter_facebook_auth: ^3.4.1
   font_awesome_flutter: ^9.0.0
   firebase_messaging_platform_interface: 3.1.6
+  flutter_signin_button: ^2.0.0
 
 
 dev_dependencies:

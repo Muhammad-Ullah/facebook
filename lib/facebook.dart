@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 
 class FacebookLogin extends StatefulWidget {
@@ -27,16 +28,32 @@ class _FacebookLoginState extends State<FacebookLogin> {
     );
   }
 
-
   _displayLoginButton() {
-    return TextButton(
-      child: const Text(
-        "Login with Facebook",
-        style: TextStyle(color: Colors.blue),
+    return Container(
+      width: 300,
+      decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.blue,
+          ),
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.blue
       ),
-      onPressed: () {
-        signInWithFacebook();
-      },
+    
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SignInButton(
+            Buttons.Facebook,
+            text: "Log in with facebook",
+            mini: true,
+            onPressed: () {
+              signInWithFacebook();
+            },
+          ),
+          const Text("  Log in with facebook",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 20),),
+        ],
+      ),
     );
   }
   void signInWithFacebook() async {
